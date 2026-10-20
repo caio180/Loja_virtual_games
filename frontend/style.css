@@ -137,3 +137,30 @@ header p {
     color: #b8bbc4;
     cursor: not-allowed;
 }
+
+footer {
+    width: 100%;
+    background-color: #191d27;
+    margin-top: 100px;
+    padding: 20px;
+    text-align: center;
+    border-top: 3px solid #ff6b00;
+    box-sizing: border-box;
+}
+
+.devs {
+    display: inline-block;
+    font-weight: bold;
+    color: #ff6b00;
+    text-decoration: none;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.devs:hover {
+    cursor: pointer;
+    background-color: #ff6b00;
+    color: #191d27;
+    padding: 2px 4px;
+    border-radius: 4px;
+    transform: scale(1.15);
+}
