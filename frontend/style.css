@@ -42,6 +42,18 @@ header p {
     padding-left: 12px;
 }
 
+.perfil_usuario {
+    padding: 5px;
+    background-color: #303541;
+    border-radius: 50%;
+    border: none;
+    font-size: 15px;
+    position: absolute;
+    top: 24px;
+    right: 60px;
+    cursor:pointer;
+}
+
 .carrinho_compra {
     padding: 5px;
     background-color: #ff6b00;
