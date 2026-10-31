@@ -87,6 +87,30 @@ header p {
     outline-offset: 2px;
 }
 
+.filtros-genero button {
+    background-color: #191d27;
+    color: grey;
+    border: 1px solid #ff6b00;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filtros-genero button:hover {
+    background-color: #ff6b00;
+    color: #fff;
+    border-color: #0f1117;
+    transform: translateY(-2px);
+}
+
+.filtros-genero button:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
 #lista-jogos {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
