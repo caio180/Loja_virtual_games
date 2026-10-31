@@ -31,6 +31,11 @@ const listarJogos = document.getElementById("lista-jogos");
 function renderizarJogos(lista) {
     listarJogos.innerHTML = "";
 
+    if(lista.length === 0) {
+        listarJogos.innerHTML = "<p>Nenhum jogo encontrado.</p>";
+        return;
+    }
+
     lista.forEach(function(jogo) {
         const produto = document.createElement("article");
 
@@ -64,3 +69,5 @@ campoBusca.addEventListener("input", function() {
 
     renderizarJogos(jogosFiltrados);
 });
+
+renderizarJogos(jogos);
