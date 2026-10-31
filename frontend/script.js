@@ -28,24 +28,39 @@ const jogos = [
 
 const listarJogos = document.getElementById("lista-jogos");
 
-jogos.forEach(function(jogo) {
-    const produto = document.createElement("article");
+function renderizarJogos(lista) {
+    listarJogos.innerHTML = "";
 
-    produto.classList.add("card-produto");
+    lista.forEach(function(jogo) {
+        const produto = document.createElement("article");
 
-    produto.innerHTML = `
-        <div class="info-produto">
-            <h3>${jogo.nome}</h3>
-            <p class="plataforma">Plataforma: ${jogo.plataforma.join(", ")}</p>
-            <p>Gênero: ${jogo.genero}</p>
-            <p>Formato: ${jogo.formato}</p>
-            <p>Estoque: ${jogo.estoque ?? 0}</p>
-            <p class="preco">R$ ${jogo.preco.toFixed(2).replace(".", ",")}</p>
-            <button ${!jogo.estoque ? "disabled" : ""}>
-                ${jogo.estoque ? "Adicionar ao carrinho" : "Indisponível"}
-            </button>
-        </div>
-    `;
+        produto.classList.add("card-produto");
 
-    listarJogos.appendChild(produto);
+        produto.innerHTML = `
+            <div class="info-produto">
+                <h3>${jogo.nome}</h3>
+                <p class="plataforma">Plataforma: ${jogo.plataforma.join(", ")}</p>
+                <p>Gênero: ${jogo.genero}</p>
+                <p>Formato: ${jogo.formato}</p>
+                <p>Estoque: ${jogo.estoque ?? 0}</p>
+                <p class="preco">R$ ${jogo.preco.toFixed(2).replace(".", ",")}</p>
+                <button ${!jogo.estoque ? "disabled" : ""}>
+                    ${jogo.estoque ? "Adicionar ao carrinho" : "Indisponível"}
+                </button>
+            </div>
+        `;
+
+        listarJogos.appendChild(produto);
+    });
+}
+const campoBusca = document.getElementById("campo-busca");
+
+campoBusca.addEventListener("input", function() {
+    const termo = campoBusca.value.toLowerCase().trim();
+
+    const jogosFiltrados = jogos.filter(function(jogo) {
+        return jogo.nome.toLowerCase().includes(termo);
+    });
+
+    renderizarJogos(jogosFiltrados);
 });
