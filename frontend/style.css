@@ -40,6 +40,7 @@ header p {
     font-size: 24px;
     border-left: 4px solid #ff6b00;
     padding-left: 12px;
+    margin-top: 15px;
 }
 
 .perfil_usuario {
@@ -73,7 +74,6 @@ header p {
 #campo-busca {
     width: 100%;
     padding: 12px;
-    margin-bottom: 20px;
     margin-top: 10px;
     border: 1px solid #ff6b00;
     border-radius: 50px;
@@ -109,6 +109,34 @@ header p {
 .filtros-genero button:active {
     transform: translateY(0);
     box-shadow: none;
+}
+
+#filtro-estoque {
+    background-color: #191d27;
+    color: grey;
+    border: 1px solid #ff6b00;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#filtro-estoque option {
+    background-color: #191d27;
+    color: grey;
+}
+
+#filtro-estoque:hover{
+    background-color: #ff6b00;
+    color: #fff;
+    border-color: #0f1117;
+    transform: translateY(-2px);
+}
+
+#filtro-estoque option:active {
+    background-color: red;
 }
 
 #lista-jogos {
