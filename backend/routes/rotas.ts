@@ -5,8 +5,9 @@ const router = Router();
 
 
 router.get('/', (req, res) => busca.BuscarJogos(req, res));
+router.get('/:id', (req, res) => busca.BuscarJogosId(req, res)); 
+
 /*
-router.get('/catalog/:id'); 
 router.post('/catalog');
 router.put('/catalog/:id') ;
 router.delete('/catalog/:id');
