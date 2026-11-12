@@ -6,41 +6,52 @@
     <title>MídiaGamer BR | Loja de Games</title>
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://jsdelivr.net">
     <link rel="stylesheet" href="style.css">
-
 </head>
 <body>
 
     <header>
-        <h1>MídiaGamer BR</h1>
-        <p>Sua próxima aventura começa aqui.</p>
-        <button class="carrinho_compra">🛒</i></button>
-        <button class="perfil_usuario">👤</button>
+        <div class="titulo-site">
+            <h1>MídiaGamer BR</h1>
+            <p>Sua próxima aventura começa aqui.</p>
+        </div>
+
+        <div class="area-pesquisa">
+            <input
+               type="text"
+               id="campo-busca"
+               placeholder="Buscar um jogo..."
+            >
+        </div>
+
+        <div class="acoes-usuario">
+            <button class="perfil_usuario" title="Perfil">👤</button>
+            <button class="carrinho_compra" title="Carrinho">🛒</button>
+        </div>
     </header>
 
     <main>
         <section class="catalogo">
             <h2>Jogos em destaque</h2>
 
-            <input
-               type="text"
-               id="campo-busca"
-               placeholder="Buscar um jogo..."
-            >
-        
-        <h2>Gênero</h2>
-        <div class="filtros-genero">
-            <button type="button">Todos</button>
-            <button type="button">Ação</button>
-            <button type="button">Aventura</button>
-        </div>
+            <div class="barra-filtros">
+                <div>
+                    <h3>Gênero</h3>
+                    <div class="filtros-genero">
+                        <button type="button">Todos</button>
+                        <button type="button">Ação</button>
+                        <button type="button">Aventura</button>
+                    </div>
+                </div>
 
-        <h2>Disponibilidade</h2>
-        <select id="filtro-estoque">
-            <option value="todos">Todos os jogos</option>
-            <option value="disponiveis">Somente disponíveis</option>
-        </select>
+                <div>
+                    <h3>Disponibilidade</h3>
+                    <select id="filtro-estoque">
+                        <option value="todos">Todos os jogos</option>
+                        <option value="disponiveis">Somente disponíveis</option>
+                    </select>
+                </div>
+            </div>
 
             <div id="lista-jogos">
                 <!-- Essa é a parte que ficam os jogos blz CaioX-->
@@ -48,12 +59,11 @@
         </section>
     </main>
 
-    <script src="script.js"></script>
-
     <footer>
         <h3>&copy; 2024 <span class="nome-midia">MídiaGamer BR</span>. Todos os direitos reservados.</h3>
         <p>Desenvolvido por <a href="https://github.com/Murilo5660" target="_blank" class="devs">Murilo Ferreira Stresser</a> e <a href="https://github.com/caio180" target="_blank" class="devs">Caio Lima Viana</a>.</p>
     </footer>
 
+    <script src="script.js"></script>
 </body>
 </html>
