@@ -37,5 +37,8 @@ class Model{
     PegarJogosId(id:number){
         return this.jogos.find(jogo => jogo.id === id);
     }
+    PostarJogo(jogo:any){
+        this.jogos.push(jogo);
+    }
 }
 export default Model;
