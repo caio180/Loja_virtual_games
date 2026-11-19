@@ -151,26 +151,29 @@ header p {
     transform: translateY(-2px);
 }
 
-#filtro-estoque {
-    background-color: #191d27;
-    color: #c5c8d0;
-    border: 1px solid #ff6b00;
-    padding: 9px 20px;
-    font-size: 14px;
-    font-weight: 600;
-    border-radius: 25px;
-    cursor: pointer;
-    transition: all 0.3s ease;
+#filtro-estoque,
+#filtro-plataforma {
+  background-color: #191d27;
+  color: #c5c8d0;
+  border: 1px solid #ff6b00;
+  padding: 9px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-#filtro-estoque:hover {
-    background-color: #ff6b00;
-    color: #fff;
+#filtro-estoque:hover,
+#filtro-plataforma:hover {
+  background-color: #ff6b00;
+  color: #fff;
 }
 
-#filtro-estoque option {
-    background-color: #191d27;
-    color: #ffffff;
+#filtro-estoque option,
+#filtro-plataforma option {
+  background-color: #191d27;
+  color: #ffffff;
 }
 
 /* --- GRADE DE JOGOS --- */
