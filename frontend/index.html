@@ -25,8 +25,21 @@
         </div>
 
         <div class="acoes-usuario">
-            <button class="perfil_usuario" title="Perfil">👤</button>
-            <button class="carrinho_compra" title="Carrinho">🛒</button>
+            <button 
+                class="perfil_usuario" 
+                id="perfil_usuario"
+                title="Perfil"
+                >
+                👤
+            </button>
+            <button 
+                class="carrinho_compra" 
+                id="carrinho_compra"
+                title="Carrinho"
+                >
+                🛒
+                <span id="contador-carrinho">0</span>
+            </button>
         </div>
     </header>
 
@@ -73,6 +86,33 @@
             </div>
         </section>
     </main>
+
+    <div id="modal-carrinho" class="modal-overlay escondido">
+        <div class="modal-conteudo">
+            <div class="modal-header">
+                <h2>Seu Carrinho</h2>
+
+                <button id="fechar-modal" class="btn-fechar">
+                    &times;
+                </button>
+            </div>
+
+            <div id="itens-carrinho" class="modal-body">
+                <p>Seu carrinho está vazio.</p>
+            </div>
+
+            <div class="modal-footer">
+                <p>
+                    Total:
+                    <strong id="total-carrinho">R$ 0,00</strong>
+                </p>
+
+                <button id="finalizar-compra" class="btn-finalizar">
+                    Finalizar compra
+                </button>
+            </div>
+        </div>
+    </div>
 
     <footer>
         <h3>&copy; 2026 <span class="nome-midia">MídiaGamer BR</span>. Todos os direitos reservados.</h3>
