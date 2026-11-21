@@ -3,7 +3,11 @@ const jogos = [
         nome: "Minecraft",
         preco: 99.90,
         estoque: 10,
-        plataforma: ["PC", "Xbox", "PlayStation", "Nintendo Switch"],
+        plataforma: [
+            "PC", "Xbox 360", "Xbox One", "Xbox Series X/S",
+            "PlayStation 3", "PlayStation 4", "PlayStation 5",
+            "Nintendo Wii U", "Nintendo 3DS", "Nintendo Switch"
+        ],
         genero: "Aventura",
         formato: "Virtual"
     },
@@ -11,16 +15,69 @@ const jogos = [
         nome: "GTA V",
         preco: 149.90,
         estoque: 5,
-        plataforma: ["PC", "Xbox 360", "PlayStation 3"],
+        plataforma: [
+            "PC", "Xbox 360", "Xbox One", "Xbox Series X/S",
+            "PlayStation 3", "PlayStation 4", "PlayStation 5"
+        ],
         genero: "Ação",
         formato: "Mídia física"
     },
     {
-        nome:"Red Dead Redemption 2",
+        nome: "Red Dead Redemption 2",
         preco: 199.90,
         estoque: 0,
-        plataforma: ["PC", "Xbox 360", "PlayStation 3"],
+        plataforma: [
+            "PC", "Xbox One", "Xbox Series X/S",
+            "PlayStation 4", "PlayStation 5"
+        ],
         genero: "Ação",
+        formato: "Mídia física"
+    },
+    {
+        nome: "GTA 6",
+        preco: 299.90,
+        estoque: 5,
+        plataforma: [
+            "PlayStation 5", "PlayStation 5 Pro",
+            "Xbox Series X", "Xbox Series S"
+        ],
+        genero: "Ação",
+        formato: "Virtual"
+    },
+    {
+        nome: "Call of Duty",
+        preco: 199.90,
+        estoque: 8,
+        plataforma: [
+            "PC", "Xbox", "Xbox 360", "Xbox One",
+            "Xbox Series X/S", "PlayStation 2",
+            "PlayStation 3", "PlayStation 4", "PlayStation 5"
+        ],
+        genero: "Tiro",
+        formato: "Mídia física"
+    },
+    {
+        nome: "Red Dead Redemption",
+        preco: 149.90,
+        estoque: 6,
+        plataforma: [
+            "PC", "Xbox 360", "Xbox One", "Xbox Series X/S",
+            "PlayStation 3", "PlayStation 4",
+            "Nintendo Switch"
+        ],
+        genero: "Ação",
+        formato: "Mídia física"
+    },
+    {
+        nome: "Mario Kart",
+        preco: 199.90,
+        estoque: 7,
+        plataforma: [
+            "Super Nintendo", "Nintendo 64",
+            "Nintendo Wii", "Nintendo Wii U",
+            "Nintendo Switch"
+        ],
+        genero: "Corrida",
         formato: "Mídia física"
     }
 ];
