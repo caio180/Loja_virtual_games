@@ -84,6 +84,82 @@ const jogos = [
 
 
 const listarJogos = document.getElementById("lista-jogos");
+const btnCarrinho = document.getElementById("carrinho_compra");
+const modalCarrinho = document.getElementById("modal-carrinho");
+const btnFecharModal = document.getElementById("fechar-modal");
+const contadorCarrinhoEl = document.getElementById("contador-carrinho");
+const containerItensCarrinho = document.getElementById("itens-carrinho");
+const totalCarrinhoEl = document.getElementById("total-carrinho");
+
+let carrinho = [];
+
+function adicionarAoCarrinho(jogo) {
+    if (!jogo.estoque || jogo.estoque <= 0) {
+        alert("Este jogo está indisponível no momento.");
+        return;
+    }
+    const itemExistente = carrinho.find(function(item) {
+        return item.nome === jogo.nome;
+    });
+    if(itemExistente) {
+        if(itemExistente.quantidade >= jogo.estoque) {
+            alert("Não é possível adicionar mais unidades deste jogo ao carrinho. Estoque insuficiente.");
+        }
+        else{ 
+            itemExistente.quantidade +=1;
+        }
+    } else {
+        carrinho.push({
+            nome: jogo.nome,
+            preco: jogo.preco,
+            quantidade: 1
+        });    
+    }
+    atualizarCarrinho();
+}
+
+function atualizarCarrinho() {
+    let totalItens = 0;
+
+    carrinho.forEach(function(item){
+        totalItens += item.quantidade;
+    });
+    contadorCarrinhoEl.textContent = totalItens;
+
+    containerItensCarrinho.innerHTML = "";
+
+    carrinho.forEach(function(item) {
+        const itemCarrinho = document.createElement("div");
+        itemCarrinho.classList.add("item-carrinho");
+        itemCarrinho.innerHTML = `
+            <span>${item.nome}</span>
+            <span>Quantidade: ${item.quantidade}</span>
+            <span>Preço: R$ ${(item.preco * item.quantidade).toFixed(2).replace(".", ",")}</span>
+        `;
+        containerItensCarrinho.appendChild(itemCarrinho);
+    });
+
+    let totalPreco = 0;
+
+    carrinho.forEach(function(item) {
+        totalPreco += item.preco * item.quantidade;
+    });
+    totalCarrinhoEl.textContent = `R$ ${totalPreco.toFixed(2).replace(".", ",")}`;
+};
+
+modalCarrinho.addEventListener("click", function(event) {
+    if(event.target === modalCarrinho) {
+        modalCarrinho.classList.add("escondido");
+    }
+});
+
+btnCarrinho.addEventListener("click", function() {
+    modalCarrinho.classList.remove("escondido");
+});
+
+btnFecharModal.addEventListener("click", function() {
+    modalCarrinho.classList.add("escondido");
+});
 
 function renderizarJogos(lista) {
     listarJogos.innerHTML = "";
@@ -111,6 +187,11 @@ function renderizarJogos(lista) {
                 </button>
             </div>
         `;
+
+        const botao = produto.querySelector("button");
+        botao.addEventListener("click", function() {
+            adicionarAoCarrinho(jogo);
+        });
 
         listarJogos.appendChild(produto);
     });

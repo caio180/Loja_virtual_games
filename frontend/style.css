@@ -329,3 +329,92 @@ footer p {
 ::-webkit-scrollbar-thumb:hover {
     background: #ff7716;
 }
+
+/* --- MODAL CARRINHO --- */
+.escondido {
+    display: none !important;
+}
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-conteudo {
+    background-color: #191d27;
+    color: #ffffff;
+    width: 90%;
+    max-width: 500px;
+    border: solid 1px #ff6b00;
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #303541;
+    padding-bottom: 12px;
+}
+
+.modal-header h2 {
+    color: #ff6b00;
+    font-weight: bold;
+    font-size: 22px;
+    margin: 0;
+}
+
+.btn-fechar {
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.modal-body {
+    max-height: 300px;
+    overflow-y: auto;
+    margin: 15px 0;
+}
+
+.modal-footer {
+    border-top: 1px solid #303541;
+    padding-top: 15px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-footer p {
+    margin: 0;
+}
+
+#total-carrinho {
+    font-size: 18px;
+    font-weight: bold;
+    color: #ff6b00;
+}
+
+#finalizar-compra {
+    background-color: #ff6b00;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
+}
+
+#finalizar-compra:hover {
+    background-color: #e65f00;
+}
