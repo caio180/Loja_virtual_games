@@ -90,6 +90,9 @@ const btnFecharModal = document.getElementById("fechar-modal");
 const contadorCarrinhoEl = document.getElementById("contador-carrinho");
 const containerItensCarrinho = document.getElementById("itens-carrinho");
 const totalCarrinhoEl = document.getElementById("total-carrinho");
+const btnPerfil = document.getElementById("perfil_usuario")
+const modalPerfil = document.getElementById("modal-perfil");
+const btnFecharModal2 = document.getElementById("fechar-modal2");
 
 let carrinho = [];
 
@@ -159,6 +162,20 @@ btnCarrinho.addEventListener("click", function() {
 
 btnFecharModal.addEventListener("click", function() {
     modalCarrinho.classList.add("escondido");
+});
+
+modalPerfil.addEventListener("click", function(event) {
+    if(event.target === modalPerfil) {
+        modalPerfil.classList.add("escondido");
+    }
+});
+
+btnPerfil.addEventListener("click", function() {
+    modalPerfil.classList.remove("escondido");
+});
+
+btnFecharModal2.addEventListener("click", function(event) {
+    modalPerfil.classList.add("escondido");
 });
 
 function renderizarJogos(lista) {
