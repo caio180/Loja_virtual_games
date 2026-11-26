@@ -382,6 +382,7 @@ footer p {
     max-height: 300px;
     overflow-y: auto;
     margin: 15px 0;
+    padding: 5px;
 }
 
 .modal-footer {
@@ -403,7 +404,7 @@ footer p {
     color: #ff6b00;
 }
 
-#finalizar-compra {
+.btn-finalizar {
     background-color: #ff6b00;
     color: #ffffff;
     border: none;
@@ -415,6 +416,36 @@ footer p {
     transition: background-color 0.2s ease;
 }
 
-#finalizar-compra:hover {
+.btn-finalizar:hover {
     background-color: #e65f00;
+}
+
+.modal-body input {
+    width: 100%;
+    padding: 10px 18px;
+    border: 1px solid #ff6b00;
+    border-radius: 50px;
+    background-color: #0f1117;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.modal-body input:focus {
+    outline: 2px solid #ff6b00;
+    outline-offset: 2px;
+}
+
+.campo-login {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.campo-login:last-child {
+    margin-bottom: 0;
+}
+
+.campo-login span {
+    font-size: 20px;
 }
