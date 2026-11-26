@@ -121,34 +121,64 @@ function adicionarAoCarrinho(jogo) {
     atualizarCarrinho();
 }
 
+// NOVA FUNÇÃO: Diminui 1 unidade ou remove o item se chegar a 0
+function removerDoCarrinho(nomeJogo) {
+  const index = carrinho.findIndex(function(item) {
+    return item.nome === nomeJogo;
+  });
+
+  if (index !== -1) {
+    if (carrinho[index].quantidade > 1) {
+      carrinho[index].quantidade -= 1;
+    } else {
+      carrinho.splice(index, 1);
+    }
+  }
+  atualizarCarrinho();
+}
+
 function atualizarCarrinho() {
-    let totalItens = 0;
+  let totalItens = 0;
+  carrinho.forEach(function(item) {
+    totalItens += item.quantidade;
+  });
+  contadorCarrinhoEl.textContent = totalItens;
+  containerItensCarrinho.innerHTML = "";
 
-    carrinho.forEach(function(item){
-        totalItens += item.quantidade;
+    // Exibe a mensagem novamente se o carrinho ficar vazio
+  if (carrinho.length === 0) {
+    containerItensCarrinho.innerHTML = "<p>Seu carrinho está vazio.</p>";
+    totalCarrinhoEl.textContent = "R$ 0,00";
+    return;
+  }
+
+  carrinho.forEach(function(item) {
+    const itemCarrinho = document.createElement("div");
+    itemCarrinho.classList.add("item-carrinho");
+
+    // Botão posicionado logo antes (à esquerda) do span de Preço
+    itemCarrinho.innerHTML = `
+      <span>${item.nome}</span>
+      <span>Quantidade: ${item.quantidade}</span>
+      <button class="btn-remover" type="button">Remover</button>
+      <span>Preço: R$ ${(item.preco * item.quantidade).toFixed(2).replace(".", ",")}</span>
+    `;
+
+    // Evento de clique para remover o item
+    const btnRemover = itemCarrinho.querySelector(".btn-remover");
+    btnRemover.addEventListener("click", function() {
+      removerDoCarrinho(item.nome);
     });
-    contadorCarrinhoEl.textContent = totalItens;
 
-    containerItensCarrinho.innerHTML = "";
+    containerItensCarrinho.appendChild(itemCarrinho);
+  });
 
-    carrinho.forEach(function(item) {
-        const itemCarrinho = document.createElement("div");
-        itemCarrinho.classList.add("item-carrinho");
-        itemCarrinho.innerHTML = `
-            <span>${item.nome}</span>
-            <span>Quantidade: ${item.quantidade}</span>
-            <span>Preço: R$ ${(item.preco * item.quantidade).toFixed(2).replace(".", ",")}</span>
-        `;
-        containerItensCarrinho.appendChild(itemCarrinho);
-    });
-
-    let totalPreco = 0;
-
-    carrinho.forEach(function(item) {
-        totalPreco += item.preco * item.quantidade;
-    });
-    totalCarrinhoEl.textContent = `R$ ${totalPreco.toFixed(2).replace(".", ",")}`;
-};
+  let totalPreco = 0;
+  carrinho.forEach(function(item) {
+    totalPreco += item.preco * item.quantidade;
+  });
+  totalCarrinhoEl.textContent = `R$ ${totalPreco.toFixed(2).replace(".", ",")}`;
+}
 
 modalCarrinho.addEventListener("click", function(event) {
     if(event.target === modalCarrinho) {
