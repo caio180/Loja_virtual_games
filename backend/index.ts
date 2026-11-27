@@ -1,7 +1,7 @@
 import express from 'express';
 import 'dotenv/config';
 import cors from 'cors';
-import router from './routes/rotas';
+import router from './routes/rotas.js';
 
 const app = express();
 const porta = process.env.PORT;
