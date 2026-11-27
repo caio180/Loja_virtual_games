@@ -1,3 +1,6 @@
+import connection from "./connection.js";
+import type { RowDataPacket, ResultSetHeader } from "mysql2";
+
 class Model{
     private jogos = [
 {
@@ -28,11 +31,18 @@ class Model{
    formato: "Mídia física"
 }
 ];
+    private formato_jogos: Record<number, string> = {
+            1: 'Virtual',
+            2: 'Midia Física'
+        };
     constructor(){
         
     }
-    JogosDisponiveis(){
-        return this.jogos;
+    async JogosDisponiveis() {
+        const [jogos_busca] = await connection.query<RowDataPacket[]>('SELECT * FROM jogos;' );
+        const organizar_jogos = jogos_busca.map(jogo => ({...jogo, formato: this.formato_jogos[jogo.formato]
+    }));
+        return organizar_jogos;
     }
     PegarJogosId(id:number){
         return this.jogos.find(jogo => jogo.id === id);
