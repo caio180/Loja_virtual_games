@@ -93,6 +93,10 @@ const totalCarrinhoEl = document.getElementById("total-carrinho");
 const btnPerfil = document.getElementById("perfil_usuario")
 const modalPerfil = document.getElementById("modal-perfil");
 const btnFecharModal2 = document.getElementById("fechar-modal2");
+const modalFinalizarCompra = document.getElementById("modal-finalizar-compra");
+const btnFecharModal3 = document.getElementById("fechar-modal3");
+const btnFinalizarCompra = document.getElementById("finalizar-compra2");
+const btnFinalizarCompra1 = document.getElementById("finalizar-compra1");
 
 let carrinho = [];
 
@@ -206,6 +210,20 @@ btnPerfil.addEventListener("click", function() {
 
 btnFecharModal2.addEventListener("click", function(event) {
     modalPerfil.classList.add("escondido");
+});
+
+modalFinalizarCompra.addEventListener("click", function(event) {
+    if(event.target === modalFinalizarCompra) {
+        modalFinalizarCompra.classList.add("escondido");
+    }
+});
+
+btnFinalizarCompra.addEventListener("click", function() {
+    modalFinalizarCompra.classList.remove("escondido");
+});
+
+btnFecharModal3.addEventListener("click", function(event) {
+    modalFinalizarCompra.classList.add("escondido");
 });
 
 function renderizarJogos(lista) {
