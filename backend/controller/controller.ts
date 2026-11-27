@@ -1,14 +1,14 @@
-import { Request, Response } from "express";
-import Model from "../model/model";
+import type { Request, Response } from "express";
+import Model from "../model/model.js";
 
 class CatalogController{
     constructor() {
 
     }
-    BuscarJogos(req: Request, res: Response){
-     const jogos_d = new Model();
-     res.send(jogos_d.JogosDisponiveis())
-
+    async BuscarJogos(req: Request, res: Response) {
+        const jogos_d = new Model();
+        const jogos = await jogos_d.JogosDisponiveis();
+        res.send(jogos);
     }
     BuscarJogosId(req: Request, res: Response){
         const id = Number(req.params.id)
